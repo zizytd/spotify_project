@@ -26,18 +26,16 @@ artists_listened_column = f'id TEXT,name TEXT,genres TEXT,followers INTEGER,imag
 
 def load_data_2_db(table_name: str, table_columns: str, data: list, primary_key: str, conflict='NOTHING'):
     conn.execute(f"CREATE TABLE IF NOT EXISTS {table_name}({table_columns})")
+    exe_many = f"INSERT INTO {table_name} VALUES ({', '.join('?'*len(data[0]))}) ON CONFLICT {primary_key} DO {conflict}"
     if conflict == 'UPDATE SET':
         combined_str = ', '.join([f'{i.split()[0]} = excluded.{i.split()[0]}' for i in table_columns.split(',')][1:-2])
-        conn.executemany(
-            f"INSERT INTO {table_name} VALUES ({', '.join('?'*len(data[0]))}) ON CONFLICT{primary_key} DO {conflict} {combined_str}",  # ', '.join('?'*len(data[0])) -- this dynamically get the number of ?s needed for the columns.
-            data,
+        exe_many = f"INSERT INTO {table_name} VALUES ({', '.join('?'*len(data[0]))}) ON CONFLICT{primary_key} DO {conflict} {combined_str}"
+    chunksize = 20
+    for i in range(0,len(data),chunksize):
+        conn.executemany(exe_many,
+            data[i:i+chunksize],
             )
-    else:
-        conn.executemany(
-            f"INSERT INTO {table_name} VALUES ({', '.join('?'*len(data[0]))}) ON CONFLICT {primary_key} DO {conflict}",
-            data,
-            )
-    conn.commit()
+        conn.commit()
 
 load_data_2_db(previous_listened_spotify,previous_listened_spotify_column,tracks_items,primary_key_listened)
 sleep(2)
