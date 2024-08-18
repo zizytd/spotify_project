@@ -3,4 +3,4 @@ This project is an ETL workflow that retrieves user data from the Spotify API an
 
 The goal of the project is to track a user's listening activity on Spotify, including the songs they listen to and the artists performing them.
 
-GitHub Actions is used to schedule and execute the code, running it every 10 minutes.
+GitHub Actions is used to schedule and execute the code, running it every 10 minutes. ```sh 10 * * * * ```
