@@ -34,7 +34,7 @@ To install the requirements
 - Scheduling with GitHub Actions - It doesn't run at the expected time, but typically starts 15 to 20 minutes later. 
 
 ## Next Steps
-- Analyze the data and create visually appealing dashboards to answer questions such as:
+- Analyze the data and create visually appealing dashboards with Streamlit library to answer questions such as:
     - What are the top songs the user has listened to?
     - Who are the top artists whose songs the user has listened to?
 
