@@ -8,4 +8,6 @@ The goal of the project is to track a user's listening activity on Spotify, incl
 GitHub Actions is used to schedule and execute the code, running it every 10 minutes. ```10 * * * * ```
 
 ## Architecture
-![image](images/Spotify%20Project.png)
+<p align="center">
+  <img src="images/Spotify%20Project.png" />
+</p>
