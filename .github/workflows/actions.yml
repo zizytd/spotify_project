@@ -31,6 +31,6 @@ jobs:
           turso_auth_token: ${{ secrets.turso_auth_token }}
         uses: nick-fields/retry@v3
         with:
-          timeout_minutes: 10
+          timeout_minutes: 3
           max_attempts: 3
           command: python main.py
