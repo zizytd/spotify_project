@@ -29,4 +29,8 @@ jobs:
           turso_db_url: ${{ secrets.turso_db_url }}
           turso_db: ${{ secrets.turso_db }}
           turso_auth_token: ${{ secrets.turso_auth_token }}
-        run: python main.py
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          command: python main.py
