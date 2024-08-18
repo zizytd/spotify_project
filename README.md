@@ -5,7 +5,7 @@ This project is a Serveless ETL workflow that retrieves user data from the Spoti
 
 The goal of the project is to track a user's listening activity on Spotify, including the songs they listen to and the artists performing them.
 
-GitHub Actions is used to schedule and execute the code, running it every 10 minutes ```10 * * * * ```.
+GitHub Actions is used to schedule and execute the code, running it every 10 minutes ```10 * * * *```.
 
 ## Architecture
 <p align="center">
