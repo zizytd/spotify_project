@@ -63,6 +63,7 @@ def load_data_2_db(
         except ValueError:
             if h < attempt - 1:
                 print(f"Transaction timed out. Retrying.")
+                sleep(5)
             else:
                 raise
 
