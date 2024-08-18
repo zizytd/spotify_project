@@ -27,7 +27,7 @@ GitHub Actions is a CI/CD (Continuous Integration and Continuous Deployment) too
 
 To install the requirements
 ```bash
-    pip install -r requirement.txt
+    pip install -r requirements.txt
 ```
 
 ## Limitations/Problems
