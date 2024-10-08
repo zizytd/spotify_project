@@ -3,26 +3,28 @@ import pandas as pd
 from database import get_active_connection
 import warnings
 
-warnings.filterwarnings('ignore')
-
+warnings.filterwarnings("ignore")
 
 
 with open("streamlit/queries/top_listened.txt") as q:
     query = q.read()
 
 
-num = st.sidebar.slider("Select Limit",min_value=5,value=10,step=5,max_value=20,key='num_count')
+num = st.sidebar.slider(
+    "Select Limit", min_value=5, value=10, step=5, max_value=20, key="num_count"
+)
 
 st.header(f"Top {st.session_state.num_count} Most Played Songs 🎧")
 
 conn = get_active_connection()
 
 
-
 st.cache_data(ttl=3600, show_spinner="Fetching data from Database....")
+
 
 def query_data(num):
     return pd.read_sql(query.format(num=num), conn)
+
 
 try:
     df = query_data(num)
@@ -30,7 +32,7 @@ except Exception as e:
     st.error(e)
     st.stop()
 
-values  = df.values.tolist()
+values = df.values.tolist()
 
 
 html_table = """
@@ -105,9 +107,12 @@ for val in values:
                         <td>{val[5]}</td>
                      </tr>"""
 
-html_table += part_body + """</tbody>
+html_table += (
+    part_body
+    + """</tbody>
                                         </table>
                                         </div>"""
+)
 
 # Render the HTML table in Streamlit
 st.markdown(html_table, unsafe_allow_html=True)
