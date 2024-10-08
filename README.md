@@ -3,7 +3,7 @@
 ## Description
 This project is a serverless ETL workflow that retrieves my user data from the Spotify API, loads it into an SQLite database hosted on Turso, and visualizes the results using Streamlit.
 
-The goal of the project is to track and visualize my listening activity on Spotify, including the songs I listen to and the artists performing them, offering insightful data visualizations for improved analysis
+The goal of the project is to track and visualize my listening activity on Spotify, including the songs I listen to and the artists performing them, offering insightful data visualizations for improved analysis.
 
 GitHub Actions is used to schedule and execute the ETL code, running it every 10 minutes ```10 * * * *```.
 
@@ -22,12 +22,12 @@ Turso is a cloud-based SQLite database tool built on libSQL, offering 9GB of fre
 GitHub Actions is a CI/CD (Continuous Integration and Continuous Deployment) tool created by GitHub to automate software development workflows. I chose to use it because it allows me to schedule the ETL pipeline without the need to manage any underlying infrastructure.
 
 ## About Streamlit
-Streamlit is an open-source Python framework that enables the quick and easy creation of interactive web applications. It allows developers to build apps using straightforward Python scripts, without requiring front-end expertise. I chose Streamlit because it helps me visualize data from the ETL process efficiently
+Streamlit is an open-source Python framework that enables the quick and easy creation of interactive web applications. It allows developers to build apps using straightforward Python scripts, without requiring front-end expertise. I chose Streamlit because it helps me visualize data from the ETL process efficiently.
 
 ## Libraries Installed
 - **requests** used for making http requests to the Spotify API.
 - **libsql-experimental** used to connect the Turso Sqlite DB.
-- **streamlit** used to display the Data
+- **streamlit** used to display the Data.
 
 To install the requirements
 ```bash
