@@ -1,0 +1,21 @@
+WITH dates AS(
+SELECT STRFTIME('%Y-%m-%d', played_at) date, count(*) count
+FROM previous_listened_spotify_tracks_table
+GROUP BY 1),
+seven_days AS (
+SELECT DATE('now', '-' || n || ' days') AS date
+FROM (
+  SELECT 0 AS n
+  UNION ALL SELECT 1
+  UNION ALL SELECT 2
+  UNION ALL SELECT 3
+  UNION ALL SELECT 4
+  UNION ALL SELECT 5
+  UNION ALL SELECT 6
+) 
+ORDER BY date)
+SELECT s.date Date, COALESCE(count,0) Count
+FROM seven_days s
+LEFT JOIN dates d
+USING(date)
+ORDER BY 1

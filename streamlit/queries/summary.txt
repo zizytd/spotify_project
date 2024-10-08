@@ -1,0 +1,9 @@
+SELECT 'Total No of Tracks Played' Details, count(*) Count
+FROM previous_listened_spotify_tracks_table
+UNION
+SELECT 'Total No of Artists Listened to' Details, count(*) Count
+FROM artists_listened_table
+UNION
+SELECT 'Total No of Genres Listened to' Details, count(*) Count
+FROM artists_listened_table,
+json_each(genres)

@@ -23,6 +23,7 @@ conn = libsql.connect(
     sync_url=os.getenv("turso_db_url"),
     auth_token=os.getenv("turso_auth_token"),
 )
+conn.sync()
 
 previous_listened_spotify = "previous_listened_spotify_tracks_table"
 artists_listened = "artists_listened_table"

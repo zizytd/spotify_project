@@ -1,0 +1,13 @@
+WITH track_table AS
+(SELECT id, name track_name, track_url, track_preview_url, json_extract(artists_ids, '$[0]') artist_id
+FROM previous_listened_spotify_tracks_table),
+track_artist_details AS
+(SELECT t.track_name, a.name artist, t.track_url, t.track_preview_url, a.image_url, COUNT(t.id) OVER (PARTITION BY t.id ORDER BY t.id) no_of_listened, ROW_NUMBER() OVER (PARTITION BY t.id ORDER BY t.id) rn
+FROM track_table t
+JOIN  artists_listened_table a
+ON t.artist_id = a.id)
+SELECT track_name track, artist, track_url url, track_preview_url preview_audio, image_url artist_image, no_of_listened count
+FROM track_artist_details 
+WHERE rn = 1
+ORDER BY 6 DESC, 1
+LIMIT {num}

@@ -1,0 +1,13 @@
+WITH artist_ids_count AS
+(SELECT 
+    json_each.value AS id, count(json_each.value) count
+FROM 
+    previous_listened_spotify_tracks_table,
+    json_each(artists_ids)
+GROUP BY 1
+ORDER BY 2 DESC, 1)
+SELECT name artist_name, followers, image_url, count
+FROM artist_ids_count
+JOIN artists_listened_table
+USING(id)
+LIMIT {num}

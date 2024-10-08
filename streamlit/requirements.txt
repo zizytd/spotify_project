@@ -1,0 +1,2 @@
+st_social_media_links==0.1.3
+libsql-experimental==0.0.40

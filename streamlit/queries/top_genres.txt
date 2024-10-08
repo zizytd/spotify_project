@@ -1,0 +1,6 @@
+SELECT json_each.value AS Genre, count(json_each.value) Count
+FROM artists_listened_table,
+json_each(genres)
+GROUP BY 1
+ORDER BY 2 DESC, 1
+LIMIT 5
