@@ -3,7 +3,7 @@ import sqlite3
 import libsql_experimental as libsql
 import streamlit as st
 
-@st.cache_resource
+@st.cache_resource(ttl=3600)
 def connection():
     conn = None
     for attempt in range(3):
