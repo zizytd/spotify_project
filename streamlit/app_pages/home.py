@@ -15,6 +15,7 @@ social_media_links = [
 
 social_media_icons = SocialMediaIcons(social_media_links) 
 social_media_icons.render(sidebar=True, justify_content="center")
+st.write(st.secrets["turso"]["turso_db"])
 
 with st.expander("About This App"):
     st.markdown("""This app displays the aggregated data of my Spotify listening patterns starting from August 2024, sourced from an ETL pipeline. 

@@ -24,8 +24,9 @@ def connection():
 
 def get_active_connection():
     try:
-        conn = connection()  # Your connection function
-        conn.execute("SELECT 1")  # Simple query to verify connection
+        conn = connection() # Your connection function
+        cursor = conn.cursor()
+        cursor.execute("SELECT 1")  # Simple query to verify connection
     except (sqlite3.OperationalError, sqlite3.DatabaseError, sqlite3.InterfaceError) as e:
         st.cache_resource.clear()  # Clear cache on failure
         conn = connection()  # Retry connection
