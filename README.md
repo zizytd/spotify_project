@@ -24,6 +24,8 @@ GitHub Actions is a CI/CD (Continuous Integration and Continuous Deployment) too
 ## About Streamlit
 Streamlit is an open-source Python framework that enables the quick and easy creation of interactive web applications. It allows developers to build apps using straightforward Python scripts, without requiring front-end expertise. I chose Streamlit because it helps me visualize data from the ETL process efficiently.
 
+[Streamlit App Link](https://spotifyproject-zizytd.streamlit.app/)
+
 ## Libraries Installed
 - **requests** used for making http requests to the Spotify API.
 - **libsql-experimental** used to connect the Turso Sqlite DB.
