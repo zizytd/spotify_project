@@ -40,7 +40,7 @@ To install the requirements
 - Scheduling with GitHub Actions - It doesn't run at the expected time, but typically starts 15 to 20 minutes later. 
 
 ## Next Steps
--  Carry out further analysis to identify patterns such as:
+- Carry out further analysis to identify patterns such as:
   - Which genres I listened to more frequently on weekends?
   - Which day of the week I listened to the most music?
 
