@@ -82,7 +82,7 @@ with st.container():
         html_table = generate_html("streamlit/queries/summary.txt")[0]
         st.markdown(html_table, unsafe_allow_html=True)
     with col2:
-        st.write("**Top 5 Genres**")
+        st.write("**Top 5 Genres Based on Artists Listened To**")
         html_table = generate_html("streamlit/queries/top_genres.txt")[0]
         st.markdown(html_table, unsafe_allow_html=True)
 

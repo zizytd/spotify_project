@@ -4,6 +4,6 @@ UNION
 SELECT 'Total No of Artists Listened to' Details, count(*) Count
 FROM artists_listened_table
 UNION
-SELECT 'Total No of Genres Listened to' Details, count(*) Count
+SELECT 'Total No of Genres Listened to' Details, count(DISTINCT(json_each.value)) Count
 FROM artists_listened_table,
 json_each(genres)
