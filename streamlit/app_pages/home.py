@@ -52,7 +52,7 @@ def generate_html(query_path):
     values_details = df.values.tolist()
 
     html_table = f"""<table>
-    <thead style="background-color:#3ce860">
+    <thead style="background-color:#3ce860;color:black">
     <tr>
         <th>{df.columns[0]}</th>
         <th>{df.columns[1]}</th>
@@ -103,7 +103,7 @@ with st.container():
         # Define the text chart
         text = (
             alt.Chart(df)
-            .mark_text(align="center", dy=6, color="white")
+            .mark_text(align="center", dy=6, color="black")
             .encode(
                 x=alt.X("Date", axis=alt.Axis(labelAngle=360)),
                 y="Count",

@@ -51,7 +51,7 @@ html_table = """
     th {
         text-align: center;
         background-color: #3ce860;  /* Set the custom background color */
-        color: white;  /* Make the header text white for contrast */
+        color: black;  /* Make the header text white for contrast */
         position: sticky;  /* Sticky header */
         top: 0;          /* Stick to the top */
         z-index: 1;     /* Ensure it appears above the content */
