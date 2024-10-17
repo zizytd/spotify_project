@@ -61,7 +61,7 @@ def load_data_2_db(
                 )
                 conn.commit()
                 break
-        except ValueError:
+        except ValueError as e:
             if h < attempt - 1:
                 print(f"Transaction timed out. Retrying.")
                 sleep(5)
@@ -76,6 +76,7 @@ load_data_2_db(
     primary_key_listened,
 )
 sleep(2)
+
 load_data_2_db(
     artists_listened,
     artists_listened_column,

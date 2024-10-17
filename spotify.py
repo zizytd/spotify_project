@@ -66,7 +66,7 @@ def get_artists_ids_details(artists_ids: list, chunksize: int, headers: dict):
                     i["name"],
                     json.dumps((i["genres"])),
                     i["followers"]["total"],
-                    i["images"][-1]["url"] if i["images"] else None,
+                    i["images"][-1]["url"] if i["images"] else "",
                 ]
                 for i in artists_res["artists"]
             ]
