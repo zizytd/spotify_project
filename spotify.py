@@ -36,7 +36,7 @@ def last_played_50(limit: int, headers: dict):
             track["track"]["id"],
             track["track"]["name"],
             track["track"]["external_urls"]["spotify"],
-            track["track"]["preview_url"],
+            track["track"]["preview_url"] if track["track"]["preview_url"] else "",
             str([artist.get("id") for artist in track["track"]["artists"]]),
             track["played_at"],
             track["track"]["duration_ms"],
